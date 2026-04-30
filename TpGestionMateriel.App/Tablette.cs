@@ -1,4 +1,4 @@
-abstract public class Tablette : Materiel
+public class Tablette : Materiel
 {
     // attributs
     protected double tailleEcran;
@@ -23,7 +23,7 @@ abstract public class Tablette : Materiel
         Console.WriteLine($"Taille Ecran: {tailleEcran} pouces");
         Console.WriteLine($"Possède Stylet: {styletInclus}");
     }
-    public int CalculerDureeMaxEmprunt()
+    public override int CalculerDureeMaxEmprunt()
     {
         return 7;
     }

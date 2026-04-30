@@ -1,4 +1,4 @@
-abstract public class Videoprojecteur : Materiel
+public class Videoprojecteur : Materiel
 {
     // attributs
     protected int luminositeLumens;
@@ -18,10 +18,15 @@ abstract public class Videoprojecteur : Materiel
         this.luminositeLumens = luminositeLumens;
         this.cableHDMIInclus = cableHDMIInclus;
     }
+
     public override void AfficherInformations()
     {
         base.AfficherInformations();
         Console.WriteLine($"Luminosité: {luminositeLumens} lumens");
         Console.WriteLine($"Câble HDMI Inclus: {cableHDMIInclus}");
+    }
+    public override int CalculerDureeMaxEmprunt()
+    {
+        return 3;
     }
 }

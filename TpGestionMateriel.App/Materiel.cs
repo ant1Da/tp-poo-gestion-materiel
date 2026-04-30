@@ -1,4 +1,6 @@
 using System.Dynamic;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
 abstract public class Materiel
 {
@@ -29,8 +31,28 @@ abstract public class Materiel
         this.reference = reference;
         this.marque = marque;
         this.modele = modele;
-        this.disponible = disponible;
-        this.etat = etat;
+        // Lorsqu'un matériel est crée, il est disponible par défaut
+        if (disponible == null) 
+        {
+            this.disponible = true; // Par défaut, le matériel est disponible
+        }
+        else
+        {
+            this.disponible = disponible;
+        }
+        // L'état peut être "Bon", "A vérifier" ou "Hors service". Par défaut, il est "Bon"
+        if (etat == null)
+        {
+            this.etat = "Bon"; // Par défaut, le matériel est en bon état
+        }
+        else if (etat != "Bon" && etat != "A vérifier" && etat != "Hors service")
+        {
+            this.etat = "Bon"; // Si l'état fourni n'est pas valide, on le met par défaut à "Bon"
+        }
+        else
+        {
+            this.etat = etat;
+        }
     }
 
     // méthodes
@@ -42,4 +64,5 @@ abstract public class Materiel
         Console.WriteLine($"Disponible: {disponible}");
         Console.WriteLine($"Etat: {etat}");
     }
+    public abstract int CalculerDureeMaxEmprunt();
 }

@@ -1,4 +1,4 @@
-abstract public class OrdinateurPortable : Materiel
+public class OrdinateurPortable : Materiel
 {
     // attributs
     protected int ramGo;
@@ -23,8 +23,8 @@ abstract public class OrdinateurPortable : Materiel
         Console.WriteLine($"RAM: {ramGo} Go");
         Console.WriteLine($"Possede Chargeur: {possedeChargeur}");
     }
-    public int CalculerDureeMaxEmprunt()
+    public override int CalculerDureeMaxEmprunt()
     {
-        return 30;
+        return 14;
     }
 }
